@@ -356,7 +356,7 @@ class xinetd (
       notify  => $xinetd::manage_service_autorestart,
       source  => $xinetd::source_dir,
       recurse => true,
-      purge   => $xinetd::source_dir_purge,
+      purge   => $xinetd::bool_source_dir_purge,
       replace => $xinetd::manage_file_replace,
       audit   => $xinetd::manage_audit,
     }
