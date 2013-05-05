@@ -25,7 +25,8 @@ class xinetd::params {
   }
 
   $service_status = $::operatingsystem ? {
-    default => true,
+    /(?i:Debian|Ubuntu|Mint)/ => false,
+    default                   => true,
   }
 
   $process = $::operatingsystem ? {
