@@ -382,13 +382,6 @@ class xinetd (
 
   ### Service monitoring, if enabled ( monitor => true )
   if $xinetd::bool_monitor == true {
-    monitor::port { "xinetd_${xinetd::protocol}_${xinetd::port}":
-      protocol => $xinetd::protocol,
-      port     => $xinetd::port,
-      target   => $xinetd::monitor_target,
-      tool     => $xinetd::monitor_tool,
-      enable   => $xinetd::manage_monitor,
-    }
     monitor::process { 'xinetd_process':
       process  => $xinetd::process,
       service  => $xinetd::service,
